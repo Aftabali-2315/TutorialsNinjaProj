@@ -1,6 +1,7 @@
 package com.tutorialsNinja.testCases;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -12,7 +13,7 @@ import com.tutorialsNinja.utils.Utilities;
 
 
 public class Login extends Base{
-
+	
 	@Test(priority = 1)
 	public void loginWithValidCredentials() {
 		HomePage hp = new HomePage(driver);
@@ -36,9 +37,10 @@ public class Login extends Base{
 		lp.enterPassword(password);
 		lp.clickLoginButton();
 		AccountPage ap = new AccountPage(driver);
-		Assert.assertTrue(ap.displayStatusOfEditAccountInformation(), "Edit your account information is not displayed");
-
+		Assert.assertTrue(ap.displayStatusOfEditAccountInformation(), "Edit your account information is not displayed");		
 	}
+	
+	
 	
 	@DataProvider(name="loginTest")
 	public Object[][] supplyDataFromExcel() {

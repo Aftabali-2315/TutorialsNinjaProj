@@ -49,7 +49,6 @@ public class Base {
 		driver.get(prop.getProperty("url"));	
 	}
 	
-	@AfterMethod
 	public void tearDown() {
 		driver.quit();
 	}
