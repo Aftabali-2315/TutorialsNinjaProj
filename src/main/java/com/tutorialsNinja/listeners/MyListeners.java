@@ -20,7 +20,6 @@ public class MyListeners implements ITestListener{
 
 	ExtentReports extentReport;
 	ExtentTest extentTest;
-	
 	@Override
 	public void onStart(ITestContext context) {
 		extentReport = ExtentReporter.generateExtentReport();
@@ -43,22 +42,21 @@ public class MyListeners implements ITestListener{
 	@Override
 	public void onTestFailure(ITestResult result) {
 		String testname = result.getName();	
-		
 		WebDriver driver = null;
+		
 		try {
-			driver = (WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
+			driver = (WebDriver)result.getTestClass().getRealClass().getSuperclass().getDeclaredField("driver").get(result.getInstance());
 		} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
 			e.printStackTrace();
 		}
-		TakesScreenshot ts = (TakesScreenshot)driver;
-		File src = ts.getScreenshotAs(OutputType.FILE);
-		String target = System.getProperty(("user.dir")+"\\Screenshots\\"+testname+".png");
+	
+		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		String target = System.getProperty("user.dir")+"\\Screenshots\\"+testname+".png";
 		try {
 			FileHandler.copy(src, new File (target));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 		extentTest.addScreenCaptureFromPath(target);
 		extentTest.log(Status.INFO, result.getThrowable());
 		extentTest.log(Status.FAIL, testname+" failed");

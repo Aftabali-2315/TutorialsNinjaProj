@@ -1,7 +1,6 @@
 package com.tutorialsNinja.testCases;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -13,7 +12,7 @@ import com.tutorialsNinja.utils.Utilities;
 
 
 public class Login extends Base{
-	
+
 	@Test(priority = 1)
 	public void loginWithValidCredentials() {
 		HomePage hp = new HomePage(driver);

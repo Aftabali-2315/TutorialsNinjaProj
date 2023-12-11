@@ -15,12 +15,12 @@ import org.testng.annotations.BeforeMethod;
 import com.tutorialsNinja.utils.Utilities;
 
 public class Base {
-
 	public WebDriver driver;
 	public Properties prop;
+	
 	@BeforeMethod
 	public void setup() {
-		 prop = new Properties();
+		prop = new Properties();
 		File propfile = new File(System.getProperty("user.dir")+"\\src\\main\\java\\com\\tutorialsNinja\\config\\config.properties");
 		try {
 			FileInputStream fis = new FileInputStream(propfile);
@@ -49,6 +49,7 @@ public class Base {
 		driver.get(prop.getProperty("url"));	
 	}
 	
+	@AfterMethod
 	public void tearDown() {
 		driver.quit();
 	}
