@@ -8,7 +8,8 @@
     <classes>
       <class name="com.tutorialsNinja.testCases.Login">
         <methods>
-          <include name="loginWithMultipleCredentials" invocation-numbers="3"/>
+          <include name="loginWithMultipleCredentials"/>
+          <include name="loginWithValidCredentials"/>
           <include name="setup"/>
           <include name="tearDown"/>
         </methods>

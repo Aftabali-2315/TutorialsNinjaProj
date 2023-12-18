@@ -1,5 +1,9 @@
 package com.tutorialsNinja.listeners;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -61,6 +65,15 @@ public class MyListeners implements ITestListener{
 	@Override
 	public void onFinish(ITestContext context) {
 		extentReport.flush();
+		
+		String pathOfExtentReport = System.getProperty("user.dir")+"\\test-output\\Extent Reports\\Extent-report.html";
+		File extentReport = new File(pathOfExtentReport);
+		
+		try {
+			Desktop.getDesktop().browse(extentReport.toURI());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 }

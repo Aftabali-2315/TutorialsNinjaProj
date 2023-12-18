@@ -6,7 +6,7 @@
 </listeners>
   <test name="Tutorials Ninja Automation Tests">
     <classes>
-      <class name="com.tutorialsNinja.testCases.Login"/>
+      <class name="com.tutorialsNinja.testCases.LoginTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

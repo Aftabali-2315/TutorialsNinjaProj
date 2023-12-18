@@ -11,7 +11,7 @@ import com.tutorialsNinja.pageObjects.LoginPage;
 import com.tutorialsNinja.utils.Utilities;
 
 
-public class Login extends Base{
+public class LoginTest extends Base{
 
 	@Test(priority = 1)
 	public void loginWithValidCredentials() {

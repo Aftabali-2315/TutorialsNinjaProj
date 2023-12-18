@@ -18,7 +18,7 @@ import org.openqa.selenium.io.FileHandler;
 public class Utilities {
 
 	public static final int implicaitWait = 10;
-	public static final int pageLoadTimeOut = 5;
+	public static final int pageLoadTimeOut = 10;
 	
 	public String generateTimeStamp() {
 		Date date = new Date();
